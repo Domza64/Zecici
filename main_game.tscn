@@ -1,9 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=8 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://bdwpup4w6qem" path="res://player/player.tscn" id="1_4g36d"]
+[ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://teksture/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
+[ext_resource type="Texture2D" uid="uid://b28v3tfrri3qb" path="res://teksture/platforme.png" id="3_t8xpo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1lf21"]
 distance = -283.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fqi5"]
+texture = ExtResource("2_w7tgp")
+texture_region_size = Vector2i(16, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.75, -2.25, -3, -4, 8, -4, 8, 4, -4, 4, -4.875, 2.875)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 8, -4, 8, 4, -8, 3.75)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 3, -4.125, 5.125, -1.75, 5.375, 2.375, 3.75, 3.625, -8, 3.75)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyk7u"]
+texture = ExtResource("3_t8xpo")
+texture_region_size = Vector2i(21, 16)
+
+[sub_resource type="TileSet" id="TileSet_fgw0y"]
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_0fqi5")
+sources/3 = SubResource("TileSetAtlasSource_hyk7u")
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,3 +47,9 @@ metadata/playerNum = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("WorldBoundaryShape2D_1lf21")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_fgw0y")
+rendering_quadrant_size = 3
+format = 2
+layer_0/tile_data = PackedInt32Array(196607, 65538, 0, 131072, 65538, 0, 131073, 65538, 0, 131074, 65538, 0, 196600, 65538, 0, 196601, 65538, 0, 196602, 65538, 0, 196603, 65538, 0, 196604, 65538, 0, 196605, 65538, 0, 196606, 65538, 0, 196599, 2, 0, 131075, 131074, 0, 393220, 65538, 0, 393221, 65538, 0, 393222, 65538, 0, 393223, 65538, 0, 393224, 65538, 0, 393219, 2, 0, 393225, 131074, 0, -327675, 65538, 0, -327674, 65538, 0, -327673, 65538, 0, -327672, 65538, 0, -327671, 65538, 0, -327670, 65538, 0, -327669, 65538, 0, 524265, 65538, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 589806, 65538, 0, 589807, 65538, 0, 589808, 65538, 0, 589809, 65538, 0, 589810, 65538, 0, -458775, 65538, 0, -458774, 65538, 0, -458773, 65538, 0, -458772, 65538, 0, -458771, 65538, 0, -524307, 65538, 0, -524306, 65538, 0, -524305, 65538, 0, -524304, 65538, 0, -524303, 65538, 0, -524302, 65538, 0, -524301, 65538, 0, -524300, 65538, 0, 524264, 2, 0, -458776, 2, 0, -524308, 2, 0, 589805, 2, 0, -327676, 2, 0, 589811, 131074, 0, 524270, 131074, 0, -458770, 131074, 0, -524299, 131074, 0, -327668, 131074, 0)
