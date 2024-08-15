@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=7 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://bdwpup4w6qem" path="res://player/player.tscn" id="1_4g36d"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://teksture/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
 [ext_resource type="Texture2D" uid="uid://b28v3tfrri3qb" path="res://teksture/platforme.png" id="3_t8xpo"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1lf21"]
-distance = -283.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fqi5"]
 texture = ExtResource("2_w7tgp")
@@ -35,6 +32,7 @@ sources/3 = SubResource("TileSetAtlasSource_hyk7u")
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
 
 [node name="Player" parent="." instance=ExtResource("1_4g36d")]
 metadata/playerNum = 1
@@ -42,11 +40,7 @@ metadata/playerNum = 1
 [node name="Player2" parent="." instance=ExtResource("1_4g36d")]
 position = Vector2(-44, 0)
 metadata/playerNum = 2
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("WorldBoundaryShape2D_1lf21")
+metadata/skin = "francesca"
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fgw0y")
