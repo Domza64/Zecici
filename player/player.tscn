@@ -1,23 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdwpup4w6qem"]
+[gd_scene load_steps=3 format=3 uid="uid://ugvk8jpleym3"]
 
-[ext_resource type="Script" path="res://player/player.gd" id="1_a4si0"]
+[ext_resource type="Script" path="res://player/player.gd" id="1_uawm0"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h1plm"]
-radius = 17.0
-height = 62.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jim55"]
+radius = 15.0
+height = 52.0
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_uj0cs"]
-animations = []
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_uawm0")
 
-[node name="Player" type="Node2D"]
-z_index = 5
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_a4si0")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_h1plm")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_uj0cs")
-animation = &""
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 4)
+shape = SubResource("CapsuleShape2D_jim55")
+debug_color = Color(1, 0.0235294, 0.756863, 0.87451)

@@ -1,9 +1,9 @@
 [gd_scene load_steps=16 format=3 uid="uid://y2lsv8wbkxnl"]
 
-[ext_resource type="PackedScene" uid="uid://bdwpup4w6qem" path="res://player/player.tscn" id="1_4g36d"]
+[ext_resource type="PackedScene" uid="uid://ugvk8jpleym3" path="res://player/player.tscn" id="1_4g36d"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
-[ext_resource type="PackedScene" uid="uid://bi6jmreqpeuqu" path="res://platorm.tscn" id="4_i6w37"]
-[ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://coin.tscn" id="4_p8ahc"]
+[ext_resource type="PackedScene" uid="uid://dsf0w6ufv6xxd" path="res://gamp_objects/platorm.tscn" id="4_i6w37"]
+[ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://gamp_objects/coin.tscn" id="4_p8ahc"]
 [ext_resource type="Texture2D" uid="uid://bi5les4kjieia" path="res://textures/onlak1.png" id="5_yoxfb"]
 [ext_resource type="Texture2D" uid="uid://c2mruwx0fuuaq" path="res://textures/onlak2.png" id="6_5spgg"]
 [ext_resource type="Texture2D" uid="uid://bqcdxwwtsj2cv" path="res://textures/onlak3.png" id="7_rxxix"]
@@ -36,6 +36,21 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_0fqi5")
 sources/3 = SubResource("TileSetAtlasSource_hyk7u")
 
+[sub_resource type="Animation" id="Animation_5ixum"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-138, -136)]
+}
+
 [sub_resource type="Animation" id="Animation_a05pk"]
 resource_name = "move"
 length = 3.0
@@ -53,21 +68,6 @@ tracks/0/keys = {
 "values": [Vector2(-138, -136), Vector2(-138, 31)]
 }
 
-[sub_resource type="Animation" id="Animation_5ixum"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-138, -136)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlhyk"]
 _data = {
 "RESET": SubResource("Animation_5ixum"),
@@ -80,25 +80,16 @@ _data = {
 process_priority = -5
 visibility_layer = 512
 z_index = -5
-position = Vector2(-19, -127)
 texture = ExtResource("8_g75ph")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
-[node name="Player" parent="." instance=ExtResource("1_4g36d")]
-metadata/playerNum = 1
-
-[node name="Player2" parent="." instance=ExtResource("1_4g36d")]
-position = Vector2(-44, 0)
-metadata/playerNum = 2
-metadata/skin = "francesca"
+zoom = Vector2(1.2, 1.2)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_fgw0y")
 rendering_quadrant_size = 3
 format = 2
-layer_0/tile_data = PackedInt32Array(196607, 65538, 0, 131072, 65538, 0, 131073, 65538, 0, 131074, 65538, 0, 196600, 65538, 0, 196601, 65538, 0, 196602, 65538, 0, 196603, 65538, 0, 196604, 65538, 0, 196605, 65538, 0, 196606, 65538, 0, 196599, 2, 0, 131075, 131074, 0, 393220, 65538, 0, 393221, 65538, 0, 393222, 65538, 0, 393223, 65538, 0, 393224, 65538, 0, 393219, 2, 0, 393225, 131074, 0, -327675, 65538, 0, -327674, 65538, 0, -327673, 65538, 0, -327672, 65538, 0, -327671, 65538, 0, -327670, 65538, 0, -327669, 65538, 0, 524265, 65538, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 589806, 65538, 0, 589807, 65538, 0, 589808, 65538, 0, 589809, 65538, 0, 589810, 65538, 0, -458775, 65538, 0, -458774, 65538, 0, -458773, 65538, 0, -458772, 65538, 0, -458771, 65538, 0, -524307, 65538, 0, -524306, 65538, 0, -524305, 65538, 0, -524304, 65538, 0, -524303, 65538, 0, -524302, 65538, 0, -524301, 65538, 0, -524300, 65538, 0, 524264, 2, 0, -458776, 2, 0, -524308, 2, 0, 589805, 2, 0, -327676, 2, 0, 589811, 131074, 0, 524270, 131074, 0, -458770, 131074, 0, -524299, 131074, 0, -327668, 131074, 0)
+layer_0/tile_data = PackedInt32Array(1048570, 65538, 0, 1048571, 65538, 0, 1048572, 65538, 0, 1048573, 65538, 0, 1048574, 65538, 0, 1048575, 65538, 0, 983040, 65538, 0, 983041, 65538, 0, 983042, 65538, 0, 983043, 65538, 0, 983044, 65538, 0, 983045, 65538, 0, 983046, 65538, 0, 983047, 65538, 0, 983048, 65538, 0, 983049, 65538, 0, 983050, 65538, 0, 1048569, 2, 0, 983051, 131074, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 524270, 65538, 0, -655363, 65538, 0, -655362, 65538, 0, -655361, 65538, 0, -720896, 65538, 0, -720895, 65538, 0, 655375, 65538, 0, 655376, 65538, 0, 655377, 65538, 0, 655378, 65538, 0, 655379, 65538, 0, 655380, 65538, 0, 655381, 65538, 0, 24, 65538, 0, 25, 65538, 0, 26, 65538, 0, 27, 131074, 0, 655382, 131074, 0, 524271, 131074, 0, 524265, 2, 0, 655374, 2, 0, 23, 2, 0, -655364, 2, 0, -720894, 131074, 0)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -114,15 +105,15 @@ position = Vector2(-312, 90)
 [node name="Clouds" type="Node" parent="."]
 
 [node name="Onlak1" type="Sprite2D" parent="Clouds"]
-position = Vector2(-220, -62)
+position = Vector2(-315, -169)
 texture = ExtResource("5_yoxfb")
 
 [node name="Onlak2" type="Sprite2D" parent="Clouds"]
-position = Vector2(-63, -138)
+position = Vector2(1, -206)
 texture = ExtResource("6_5spgg")
 
 [node name="Onlak3" type="Sprite2D" parent="Clouds"]
-position = Vector2(99, -43)
+position = Vector2(349, -129)
 texture = ExtResource("7_rxxix")
 
 [node name="Platforms" type="Node" parent="."]
@@ -135,3 +126,10 @@ libraries = {
 "": SubResource("AnimationLibrary_qlhyk")
 }
 autoplay = "move"
+
+[node name="Player" parent="." instance=ExtResource("1_4g36d")]
+position = Vector2(-34, 200)
+skin = "francesca"
+
+[node name="Player2" parent="." instance=ExtResource("1_4g36d")]
+position = Vector2(55, 198)
