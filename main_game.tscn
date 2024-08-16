@@ -22,7 +22,6 @@ texture_region_size = Vector2i(16, 8)
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 3, -4.125, 5.125, -1.75, 5.375, 2.375, 3.75, 3.625, -8, 3.75)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3i8q1"]
-load_path = "res://.godot/imported/platforme.png-93ca777a928cdc0d547838f46dffc610.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyk7u"]
 texture = SubResource("CompressedTexture2D_3i8q1")
