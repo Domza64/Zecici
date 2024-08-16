@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=17 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://bdwpup4w6qem" path="res://player/player.tscn" id="1_4g36d"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
+[ext_resource type="PackedScene" uid="uid://bjkksmu1uqo12" path="res://strawberry.tscn" id="4_dyh6v"]
 [ext_resource type="PackedScene" uid="uid://bi6jmreqpeuqu" path="res://platorm.tscn" id="4_i6w37"]
 [ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://coin.tscn" id="4_p8ahc"]
 [ext_resource type="Texture2D" uid="uid://bi5les4kjieia" path="res://textures/onlak1.png" id="5_yoxfb"]
@@ -36,6 +37,21 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_0fqi5")
 sources/3 = SubResource("TileSetAtlasSource_hyk7u")
 
+[sub_resource type="Animation" id="Animation_5ixum"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-138, -136)]
+}
+
 [sub_resource type="Animation" id="Animation_a05pk"]
 resource_name = "move"
 length = 3.0
@@ -51,21 +67,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-138, -136), Vector2(-138, 31)]
-}
-
-[sub_resource type="Animation" id="Animation_5ixum"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-138, -136)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlhyk"]
@@ -99,6 +100,17 @@ tile_set = SubResource("TileSet_fgw0y")
 rendering_quadrant_size = 3
 format = 2
 layer_0/tile_data = PackedInt32Array(196607, 65538, 0, 131072, 65538, 0, 131073, 65538, 0, 131074, 65538, 0, 196600, 65538, 0, 196601, 65538, 0, 196602, 65538, 0, 196603, 65538, 0, 196604, 65538, 0, 196605, 65538, 0, 196606, 65538, 0, 196599, 2, 0, 131075, 131074, 0, 393220, 65538, 0, 393221, 65538, 0, 393222, 65538, 0, 393223, 65538, 0, 393224, 65538, 0, 393219, 2, 0, 393225, 131074, 0, -327675, 65538, 0, -327674, 65538, 0, -327673, 65538, 0, -327672, 65538, 0, -327671, 65538, 0, -327670, 65538, 0, -327669, 65538, 0, 524265, 65538, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 589806, 65538, 0, 589807, 65538, 0, 589808, 65538, 0, 589809, 65538, 0, 589810, 65538, 0, -458775, 65538, 0, -458774, 65538, 0, -458773, 65538, 0, -458772, 65538, 0, -458771, 65538, 0, -524307, 65538, 0, -524306, 65538, 0, -524305, 65538, 0, -524304, 65538, 0, -524303, 65538, 0, -524302, 65538, 0, -524301, 65538, 0, -524300, 65538, 0, 524264, 2, 0, -458776, 2, 0, -524308, 2, 0, 589805, 2, 0, -327676, 2, 0, 589811, 131074, 0, 524270, 131074, 0, -458770, 131074, 0, -524299, 131074, 0, -327668, 131074, 0)
+
+[node name="Strawberry" type="Node" parent="."]
+
+[node name="Strawberry2" parent="Strawberry" instance=ExtResource("4_dyh6v")]
+position = Vector2(-226, 118)
+
+[node name="Strawberry3" parent="Strawberry" instance=ExtResource("4_dyh6v")]
+position = Vector2(141, 80)
+
+[node name="Strawberry4" parent="Strawberry" instance=ExtResource("4_dyh6v")]
+position = Vector2(187, -92)
 
 [node name="Coins" type="Node" parent="."]
 
