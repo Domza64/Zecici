@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi6jmreqpeuqu"]
+
+[ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="1_r1asi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cd8sb"]
+size = Vector2(40, 8)
+
+[node name="platorm" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r1asi")
+region_enabled = true
+region_rect = Rect2(3.02457, -0.271626, 41.6202, 8.27163)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cd8sb")
+one_way_collision = true

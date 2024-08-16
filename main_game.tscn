@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=9 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://bdwpup4w6qem" path="res://player/player.tscn" id="1_4g36d"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
-[ext_resource type="Texture2D" uid="uid://b28v3tfrri3qb" path="res://textures/platforme.png" id="3_t8xpo"]
+[ext_resource type="PackedScene" uid="uid://bi6jmreqpeuqu" path="res://platorm.tscn" id="4_i6w37"]
+[ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://coin.tscn" id="4_p8ahc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fqi5"]
 texture = ExtResource("2_w7tgp")
@@ -20,8 +21,11 @@ texture_region_size = Vector2i(16, 8)
 2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 3, -4.125, 5.125, -1.75, 5.375, 2.375, 3.75, 3.625, -8, 3.75)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3i8q1"]
+load_path = "res://.godot/imported/platforme.png-93ca777a928cdc0d547838f46dffc610.ctex"
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyk7u"]
-texture = ExtResource("3_t8xpo")
+texture = SubResource("CompressedTexture2D_3i8q1")
 texture_region_size = Vector2i(21, 16)
 
 [sub_resource type="TileSet" id="TileSet_fgw0y"]
@@ -47,3 +51,15 @@ tile_set = SubResource("TileSet_fgw0y")
 rendering_quadrant_size = 3
 format = 2
 layer_0/tile_data = PackedInt32Array(196607, 65538, 0, 131072, 65538, 0, 131073, 65538, 0, 131074, 65538, 0, 196600, 65538, 0, 196601, 65538, 0, 196602, 65538, 0, 196603, 65538, 0, 196604, 65538, 0, 196605, 65538, 0, 196606, 65538, 0, 196599, 2, 0, 131075, 131074, 0, 393220, 65538, 0, 393221, 65538, 0, 393222, 65538, 0, 393223, 65538, 0, 393224, 65538, 0, 393219, 2, 0, 393225, 131074, 0, -327675, 65538, 0, -327674, 65538, 0, -327673, 65538, 0, -327672, 65538, 0, -327671, 65538, 0, -327670, 65538, 0, -327669, 65538, 0, 524265, 65538, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 589806, 65538, 0, 589807, 65538, 0, 589808, 65538, 0, 589809, 65538, 0, 589810, 65538, 0, -458775, 65538, 0, -458774, 65538, 0, -458773, 65538, 0, -458772, 65538, 0, -458771, 65538, 0, -524307, 65538, 0, -524306, 65538, 0, -524305, 65538, 0, -524304, 65538, 0, -524303, 65538, 0, -524302, 65538, 0, -524301, 65538, 0, -524300, 65538, 0, 524264, 2, 0, -458776, 2, 0, -524308, 2, 0, 589805, 2, 0, -327676, 2, 0, 589811, 131074, 0, 524270, 131074, 0, -458770, 131074, 0, -524299, 131074, 0, -327668, 131074, 0)
+
+[node name="coin" parent="." instance=ExtResource("4_p8ahc")]
+position = Vector2(74, 81)
+
+[node name="coin2" parent="." instance=ExtResource("4_p8ahc")]
+position = Vector2(95, -97)
+
+[node name="coin3" parent="." instance=ExtResource("4_p8ahc")]
+position = Vector2(-312, 90)
+
+[node name="platorm" parent="." instance=ExtResource("4_i6w37")]
+position = Vector2(-138, -136)
