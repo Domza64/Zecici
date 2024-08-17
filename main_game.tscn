@@ -1,14 +1,32 @@
-[gd_scene load_steps=17 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=21 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://ugvk8jpleym3" path="res://player/player.tscn" id="1_4g36d"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
+[ext_resource type="Texture2D" uid="uid://ctgc48ikt7wms" path="res://textures/kamen.png" id="2_xatth"]
 [ext_resource type="PackedScene" uid="uid://dsf0w6ufv6xxd" path="res://gamp_objects/platorm.tscn" id="4_i6w37"]
 [ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://gamp_objects/coin.tscn" id="4_p8ahc"]
 [ext_resource type="Texture2D" uid="uid://bi5les4kjieia" path="res://textures/onlak1.png" id="5_yoxfb"]
 [ext_resource type="Texture2D" uid="uid://c2mruwx0fuuaq" path="res://textures/onlak2.png" id="6_5spgg"]
 [ext_resource type="Texture2D" uid="uid://bqcdxwwtsj2cv" path="res://textures/onlak3.png" id="7_rxxix"]
 [ext_resource type="Texture2D" uid="uid://ddtrhwacaqe2t" path="res://textures/background.png" id="8_g75ph"]
-[ext_resource type="PackedScene" path="res://strawberry.tscn" id="9_7j2vm"]
+[ext_resource type="PackedScene" uid="uid://bjkksmu1uqo12" path="res://strawberry.tscn" id="9_7j2vm"]
+[ext_resource type="PackedScene" uid="uid://1uqolen5s6b7" path="res://killzone.tscn" id="11_sbq70"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crwoc"]
+texture = ExtResource("2_xatth")
+texture_region_size = Vector2i(16, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.75, -2.25, -3, -4, 8, -4, 8, 4, -4, 4, -4.875, 2.875)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 8, -4, 8, 4, -8, 3.75)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 3, -4.125, 5.125, -1.75, 5.375, 2.375, 3.75, 3.625, -8, 3.75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fqi5"]
 texture = ExtResource("2_w7tgp")
@@ -36,6 +54,7 @@ texture_region_size = Vector2i(21, 16)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_0fqi5")
 sources/3 = SubResource("TileSetAtlasSource_hyk7u")
+sources/1 = SubResource("TileSetAtlasSource_crwoc")
 
 [sub_resource type="Animation" id="Animation_5ixum"]
 length = 0.001
@@ -75,6 +94,8 @@ _data = {
 "move": SubResource("Animation_a05pk")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ds24q"]
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -90,7 +111,7 @@ zoom = Vector2(1.2, 1.2)
 tile_set = SubResource("TileSet_fgw0y")
 rendering_quadrant_size = 3
 format = 2
-layer_0/tile_data = PackedInt32Array(1048570, 65538, 0, 1048571, 65538, 0, 1048572, 65538, 0, 1048573, 65538, 0, 1048574, 65538, 0, 1048575, 65538, 0, 983040, 65538, 0, 983041, 65538, 0, 983042, 65538, 0, 983043, 65538, 0, 983044, 65538, 0, 983045, 65538, 0, 983046, 65538, 0, 983047, 65538, 0, 983048, 65538, 0, 983049, 65538, 0, 983050, 65538, 0, 1048569, 2, 0, 983051, 131074, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 524270, 65538, 0, -655363, 65538, 0, -655362, 65538, 0, -655361, 65538, 0, -720896, 65538, 0, -720895, 65538, 0, 655375, 65538, 0, 655376, 65538, 0, 655377, 65538, 0, 655378, 65538, 0, 655379, 65538, 0, 655380, 65538, 0, 655381, 65538, 0, 24, 65538, 0, 25, 65538, 0, 26, 65538, 0, 27, 131074, 0, 655382, 131074, 0, 524271, 131074, 0, 524265, 2, 0, 655374, 2, 0, 23, 2, 0, -655364, 2, 0, -720894, 131074, 0)
+layer_0/tile_data = PackedInt32Array(1048570, 65538, 0, 1048571, 65538, 0, 1048572, 65538, 0, 1048573, 65538, 0, 1048574, 65538, 0, 1048575, 65538, 0, 983040, 65538, 0, 983041, 65538, 0, 983042, 65538, 0, 983043, 65538, 0, 983044, 65538, 0, 983045, 65538, 0, 983046, 65538, 0, 983047, 65538, 0, 983048, 65538, 0, 983049, 65538, 0, 983050, 65538, 0, 1048569, 2, 0, 983051, 131074, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 524270, 65538, 0, -655363, 65538, 0, -655362, 65538, 0, -655361, 65538, 0, -720896, 65538, 0, -720895, 65538, 0, 655375, 65538, 0, 655376, 65538, 0, 655377, 65538, 0, 655378, 65538, 0, 655379, 65538, 0, 655380, 65538, 0, 655381, 65538, 0, 24, 65538, 0, 25, 65538, 0, 26, 65538, 0, 27, 131074, 0, 655382, 131074, 0, 524271, 131074, 0, 524265, 2, 0, 655374, 2, 0, 23, 2, 0, -655364, 2, 0, -720894, 131074, 0, 262134, 1, 0, 262135, 65537, 0, 262136, 65537, 0, 262137, 65537, 0, 262138, 65537, 0, 262139, 131073, 0)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -140,3 +161,9 @@ position = Vector2(-349, 95)
 
 [node name="Strawberry2" parent="." instance=ExtResource("9_7j2vm")]
 position = Vector2(341, 148)
+
+[node name="killzone" parent="." instance=ExtResource("11_sbq70")]
+position = Vector2(1, 281)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("WorldBoundaryShape2D_ds24q")
