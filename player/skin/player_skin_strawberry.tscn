@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cse3v051tmf8b"]
+
+[ext_resource type="Texture2D" uid="uid://c041mjtery5ly" path="res://textures/strawberryskin.png" id="1_p6rtb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbydp"]
+atlas = ExtResource("1_p6rtb")
+region = Rect2(0, 0, 43, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4stwd"]
+atlas = ExtResource("1_p6rtb")
+region = Rect2(43, 0, 43, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_op6m6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbydp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4stwd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="player_skin" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_op6m6")
+autoplay = "default"
+frame_progress = 0.37258

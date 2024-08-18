@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://bjkksmu1uqo12"]
 
-[ext_resource type="Script" path="res://strawberry.gd" id="1_6ayrf"]
+[ext_resource type="Script" path="res://game_objects/strawberry/strawberry.gd" id="1_47rmr"]
 [ext_resource type="Texture2D" uid="uid://d4ma6hgg3hfiy" path="res://textures/strawberry floating.png" id="2_rrh8o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6jm41"]
@@ -29,7 +29,7 @@ animations = [{
 radius = 7.07107
 
 [node name="Strawberry" type="Area2D"]
-script = ExtResource("1_6ayrf")
+script = ExtResource("1_47rmr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_sa52k")

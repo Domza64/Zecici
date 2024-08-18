@@ -1,12 +1,23 @@
 extends CharacterBody2D
 
 var playerNumber = GameManager.addPlayer()
+var currentSkinNode : Node = null
 @export var skin : String = "steve"
 
 func _ready() -> void:
 	print("Player: " + str(playerNumber))
-	var skin = load("res://player/skin/player_skin_" + skin + ".tscn").instantiate()
-	add_child(skin)
+	reloadSkin()
+	
+func reloadSkin():
+	# Remove the old skin if it exists
+	if currentSkinNode:
+		remove_child(currentSkinNode)
+		currentSkinNode.queue_free()
+	
+	# Load and add the new skin
+	var newSkin = load("res://player/skin/player_skin_" + skin + ".tscn").instantiate()
+	add_child(newSkin)
+	currentSkinNode = newSkin
 
 const BASE_SPEED = 300.0
 const JUMP_VELOCITY = -1200.0
@@ -35,6 +46,11 @@ func _physics_process(delta):
 	handle_gravity(delta)
 	handle_movement(delta)
 	handle_jump()
+
+func changeSkin(newSkin):
+	skin = newSkin
+	reloadSkin()
+	
 
 func handle_gravity(delta):
 	if not is_on_floor():

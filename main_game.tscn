@@ -1,16 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=22 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://ugvk8jpleym3" path="res://player/player.tscn" id="1_4g36d"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
 [ext_resource type="Texture2D" uid="uid://ctgc48ikt7wms" path="res://textures/kamen.png" id="2_xatth"]
-[ext_resource type="PackedScene" uid="uid://dsf0w6ufv6xxd" path="res://gamp_objects/platorm.tscn" id="4_i6w37"]
-[ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://gamp_objects/coin.tscn" id="4_p8ahc"]
+[ext_resource type="PackedScene" uid="uid://dsf0w6ufv6xxd" path="res://game_objects/mobing_platorm.tscn" id="4_i6w37"]
+[ext_resource type="PackedScene" uid="uid://c52cchtffq336" path="res://game_objects/coin/coin.tscn" id="4_p8ahc"]
 [ext_resource type="Texture2D" uid="uid://bi5les4kjieia" path="res://textures/onlak1.png" id="5_yoxfb"]
 [ext_resource type="Texture2D" uid="uid://c2mruwx0fuuaq" path="res://textures/onlak2.png" id="6_5spgg"]
 [ext_resource type="Texture2D" uid="uid://bqcdxwwtsj2cv" path="res://textures/onlak3.png" id="7_rxxix"]
 [ext_resource type="Texture2D" uid="uid://ddtrhwacaqe2t" path="res://textures/background.png" id="8_g75ph"]
-[ext_resource type="PackedScene" uid="uid://bjkksmu1uqo12" path="res://strawberry.tscn" id="9_7j2vm"]
-[ext_resource type="PackedScene" uid="uid://1uqolen5s6b7" path="res://killzone.tscn" id="11_sbq70"]
+[ext_resource type="PackedScene" uid="uid://bjkksmu1uqo12" path="res://game_objects/strawberry/strawberry.tscn" id="9_7j2vm"]
+[ext_resource type="PackedScene" uid="uid://1uqolen5s6b7" path="res://game_objects/killzone/killzone.tscn" id="11_sbq70"]
+[ext_resource type="PackedScene" uid="uid://btu4e2ga4irc4" path="res://game_objects/platform.tscn" id="12_h2hs6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_crwoc"]
 texture = ExtResource("2_xatth")
@@ -111,7 +112,7 @@ zoom = Vector2(1.2, 1.2)
 tile_set = SubResource("TileSet_fgw0y")
 rendering_quadrant_size = 3
 format = 2
-layer_0/tile_data = PackedInt32Array(1048570, 65538, 0, 1048571, 65538, 0, 1048572, 65538, 0, 1048573, 65538, 0, 1048574, 65538, 0, 1048575, 65538, 0, 983040, 65538, 0, 983041, 65538, 0, 983042, 65538, 0, 983043, 65538, 0, 983044, 65538, 0, 983045, 65538, 0, 983046, 65538, 0, 983047, 65538, 0, 983048, 65538, 0, 983049, 65538, 0, 983050, 65538, 0, 1048569, 2, 0, 983051, 131074, 0, 524266, 65538, 0, 524267, 65538, 0, 524268, 65538, 0, 524269, 65538, 0, 524270, 65538, 0, -655363, 65538, 0, -655362, 65538, 0, -655361, 65538, 0, -720896, 65538, 0, -720895, 65538, 0, 655375, 65538, 0, 655376, 65538, 0, 655377, 65538, 0, 655378, 65538, 0, 655379, 65538, 0, 655380, 65538, 0, 655381, 65538, 0, 24, 65538, 0, 25, 65538, 0, 26, 65538, 0, 27, 131074, 0, 655382, 131074, 0, 524271, 131074, 0, 524265, 2, 0, 655374, 2, 0, 23, 2, 0, -655364, 2, 0, -720894, 131074, 0, 262134, 1, 0, 262135, 65537, 0, 262136, 65537, 0, 262137, 65537, 0, 262138, 65537, 0, 262139, 131073, 0)
+layer_0/tile_data = PackedInt32Array(1048570, 65538, 0, 1048571, 65538, 0, 1048572, 65538, 0, 1048573, 65538, 0, 1048574, 65538, 0, 1048575, 65538, 0, 983040, 65538, 0, 983041, 65538, 0, 983042, 65538, 0, 983043, 65538, 0, 983044, 65538, 0, 983045, 65538, 0, 983046, 65538, 0, 983047, 65538, 0, 983048, 65538, 0, 983049, 65538, 0, 983050, 65538, 0, 1048569, 65538, 0, 983051, 65538, 0, 1048568, 65538, 0, 1048567, 65538, 0, 1048566, 65538, 0, 1048565, 65538, 0, 1048564, 65538, 0, 983052, 65538, 0, 983053, 131074, 0, 1048563, 2, 0)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -167,3 +168,18 @@ position = Vector2(1, 281)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_ds24q")
+
+[node name="StaticBody2D" parent="." instance=ExtResource("12_h2hs6")]
+position = Vector2(-277, 125)
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("12_h2hs6")]
+position = Vector2(-350, 120)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("12_h2hs6")]
+position = Vector2(344, 204)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("12_h2hs6")]
+position = Vector2(231, 48)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("12_h2hs6")]
+position = Vector2(-11, -94)
