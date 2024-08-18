@@ -12,7 +12,6 @@ var currentSkinNode : Node = null
 @export var skin : String = "steve"
 
 func _ready() -> void:
-	print("Player: " + str(playerNumber))
 	reloadSkin()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

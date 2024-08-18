@@ -2,5 +2,6 @@ extends Area2D
 
 
 func _on_body_entered(body):
-	body.changeSkin("strawberry")
-	queue_free()
+	if body is CharacterBody2D:
+		body.changeSkin("strawberry")
+		queue_free()
