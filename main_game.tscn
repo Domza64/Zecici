@@ -111,7 +111,7 @@ zoom = Vector2(1.2, 1.2)
 script = ExtResource("2_wxyio")
 
 [node name="killzone" parent="Camera2D" instance=ExtResource("11_sbq70")]
-position = Vector2(1, 281)
+position = Vector2(0, 450)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/killzone"]
 shape = SubResource("WorldBoundaryShape2D_ds24q")
