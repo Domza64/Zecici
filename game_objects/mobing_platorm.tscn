@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cd8sb"]
 size = Vector2(40, 8)
 
-[node name="platorm" type="AnimatableBody2D"]
+[node name="MovingPlatform" type="AnimatableBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_r1asi")

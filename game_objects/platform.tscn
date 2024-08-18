@@ -1,16 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://btu4e2ga4irc4"]
+[gd_scene load_steps=5 format=3 uid="uid://btu4e2ga4irc4"]
 
 [ext_resource type="Texture2D" uid="uid://ctgc48ikt7wms" path="res://textures/kamen.png" id="1_kfixy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r1ro"]
-size = Vector2(40, 7)
+size = Vector2(88, 7)
 
-[node name="StaticBody2D" type="StaticBody2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cfp4g"]
+texture = ExtResource("1_kfixy")
+texture_region_size = Vector2i(16, 8)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_6gyd7"]
+sources/0 = SubResource("TileSetAtlasSource_cfp4g")
+
+[node name="Platform" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -0.5)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_5r1ro")
 one_way_collision = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_kfixy")
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_6gyd7")
+format = 2
+layer_0/tile_data = PackedInt32Array(65535, 65536, 0, 0, 65536, 0, 1, 65536, 0, 65534, 65536, 0, 2, 131072, 0, 65533, 0, 0)

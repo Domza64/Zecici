@@ -1,5 +1,12 @@
 extends CharacterBody2D
 
+const BASE_SPEED = 250.0
+const JUMP_VELOCITY = -1100.0
+const MAX_SPEED_MODIFIER = 5.0  # Maximum speed multiplier
+const SPEED_INCREMENT = 2.5  # Speed multiplier increase per second
+const SPEED_DECREMENT = 10.0  # Speed multiplier decrease per second
+const DEFAULT_SKIN = "steve"
+
 var playerNumber = GameManager.addPlayer()
 var currentSkinNode : Node = null
 @export var skin : String = "steve"
@@ -7,24 +14,6 @@ var currentSkinNode : Node = null
 func _ready() -> void:
 	print("Player: " + str(playerNumber))
 	reloadSkin()
-	
-func reloadSkin():
-	# Remove the old skin if it exists
-	if currentSkinNode:
-		remove_child(currentSkinNode)
-		currentSkinNode.queue_free()
-	
-	# Load and add the new skin
-	var newSkin = load("res://player/skin/player_skin_" + skin + ".tscn").instantiate()
-	add_child(newSkin)
-	currentSkinNode = newSkin
-
-const BASE_SPEED = 300.0
-const JUMP_VELOCITY = -1200.0
-const MAX_SPEED_MODIFIER = 5.0  # Maximum speed multiplier
-const SPEED_INCREMENT = 2.5  # Speed multiplier increase per second
-const SPEED_DECREMENT = 10.0  # Speed multiplier decrease per second
-const DEFAULT_SKIN = "steve"
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed_modifier = 1.0  # Initial speed multiplier
@@ -41,6 +30,17 @@ var input_map = {
 		"right": "right_p2"
 	}
 }
+
+func reloadSkin():
+	# Remove the old skin if it exists
+	if currentSkinNode:
+		remove_child(currentSkinNode)
+		currentSkinNode.queue_free()
+	
+	# Load and add the new skin
+	var newSkin = load("res://player/skin/player_skin_" + skin + ".tscn").instantiate()
+	add_child(newSkin)
+	currentSkinNode = newSkin
 
 func _physics_process(delta):
 	handle_gravity(delta)
