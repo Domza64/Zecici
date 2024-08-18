@@ -1,8 +1,8 @@
 # Zečići (Bunnies)
 
-![Title Image](images/zecici-img.png)
-
 **Zečići** (translated as "Bunnies") is a fast-paced, competitive platformer game designed for 2-4 players on a single PC. Inspired by games like *Fireboy and Watergirl* even though its not similar in tearms of gameplay, this game challenges players to outlast their opponents as they navigate an ever-rising world of randomly generated platforms.
+
+![Title Image](images/zecici-img.png)
 
 ## Gameplay
 
