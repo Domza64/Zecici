@@ -25,4 +25,9 @@ func _on_timer_timeout():
 		var coin = load("res://game_objects/coin/coin.tscn").instantiate()
 		coin.position.y -= 15
 		platform.add_child(coin)
+	else: if (randNum == 3):
+		var bone = load("res://game_objects/bone/bone.tscn").instantiate()
+		bone.position.y -= 15
+		platform.add_child(bone)
+		
 	

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cofxswu3u2xrf"]
+[gd_scene load_steps=7 format=3 uid="uid://cofxswu3u2xrf"]
 
+[ext_resource type="Script" path="res://game_objects/bone/bone.gd" id="1_hn1a3"]
 [ext_resource type="Texture2D" uid="uid://2hhheqqixyxf" path="res://textures/bone.png" id="1_x0kol"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8h8qh"]
@@ -28,6 +29,7 @@ animations = [{
 size = Vector2(6, 19)
 
 [node name="bone" type="Area2D"]
+script = ExtResource("1_hn1a3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lt52x")
@@ -37,3 +39,5 @@ frame_progress = 0.800003
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_wtmgl")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
