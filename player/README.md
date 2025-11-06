@@ -37,4 +37,3 @@ Are you ready to hop to victory? Let the best bunny win!
    git clone https://github.com/yourusername/zecici.git
 2. Open the project in Godot Engine.
 3. Run the game from the editor.
-

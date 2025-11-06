@@ -1,16 +1,17 @@
-[gd_scene load_steps=21 format=3 uid="uid://y2lsv8wbkxnl"]
+[gd_scene load_steps=22 format=3 uid="uid://y2lsv8wbkxnl"]
 
 [ext_resource type="PackedScene" uid="uid://ugvk8jpleym3" path="res://player/player.tscn" id="1_4g36d"]
+[ext_resource type="Texture2D" uid="uid://iue4qcf8itti" path="res://textures/background1.png" id="2_aomqu"]
 [ext_resource type="Texture2D" uid="uid://dqx331l0lhhkn" path="res://textures/signal-2024-08-15-204421_002.png" id="2_w7tgp"]
-[ext_resource type="Script" path="res://scripts/camera.gd" id="2_wxyio"]
+[ext_resource type="Script" uid="uid://dfysy1t85irxc" path="res://scripts/camera.gd" id="2_wxyio"]
 [ext_resource type="Texture2D" uid="uid://ctgc48ikt7wms" path="res://textures/kamen.png" id="2_xatth"]
 [ext_resource type="PackedScene" uid="uid://dsf0w6ufv6xxd" path="res://game_objects/mobing_platorm.tscn" id="4_i6w37"]
 [ext_resource type="Texture2D" uid="uid://bi5les4kjieia" path="res://textures/onlak1.png" id="5_yoxfb"]
 [ext_resource type="Texture2D" uid="uid://c2mruwx0fuuaq" path="res://textures/onlak2.png" id="6_5spgg"]
 [ext_resource type="Texture2D" uid="uid://bqcdxwwtsj2cv" path="res://textures/onlak3.png" id="7_rxxix"]
-[ext_resource type="Texture2D" uid="uid://ddtrhwacaqe2t" path="res://textures/background.png" id="8_g75ph"]
 [ext_resource type="PackedScene" uid="uid://1uqolen5s6b7" path="res://game_objects/killzone/killzone.tscn" id="11_sbq70"]
 [ext_resource type="PackedScene" uid="uid://cbimyr84ogcpd" path="res://game_objects/platform_spawner.tscn" id="12_a6qs6"]
+[ext_resource type="Script" uid="uid://q5y2331r88wr" path="res://parallax_background.gd" id="12_aomqu"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ds24q"]
 
@@ -18,32 +19,20 @@
 texture = ExtResource("2_xatth")
 texture_region_size = Vector2i(16, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.75, -2.25, -3, -4, 8, -4, 8, 4, -4, 4, -4.875, 2.875)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 8, -4, 8, 4, -8, 3.75)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 3, -4.125, 5.125, -1.75, 5.375, 2.375, 3.75, 3.625, -8, 3.75)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0fqi5"]
 texture = ExtResource("2_w7tgp")
 texture_region_size = Vector2i(16, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.75, -2.25, -3, -4, 8, -4, 8, 4, -4, 4, -4.875, 2.875)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 8, -4, 8, 4, -8, 3.75)
 2:0/0 = 0
-2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3.875, 3, -4.125, 5.125, -1.75, 5.375, 2.375, 3.75, 3.625, -8, 3.75)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3i8q1"]
@@ -92,18 +81,21 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlhyk"]
 _data = {
-"RESET": SubResource("Animation_5ixum"),
-"move": SubResource("Animation_a05pk")
+&"RESET": SubResource("Animation_5ixum"),
+&"move": SubResource("Animation_a05pk")
 }
 
 [node name="MainGame" type="Node2D"]
 
-[node name="Background" type="Sprite2D" parent="."]
-process_priority = -5
-visibility_layer = 512
-z_index = -5
-texture = ExtResource("8_g75ph")
-offset = Vector2(0, 80)
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("12_aomqu")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 1200)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(1, -179)
+texture = ExtResource("2_aomqu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(0, 100)
@@ -143,7 +135,7 @@ position = Vector2(-138, -136)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/platorm"]
 libraries = {
-"": SubResource("AnimationLibrary_qlhyk")
+&"": SubResource("AnimationLibrary_qlhyk")
 }
 autoplay = "move"
 
